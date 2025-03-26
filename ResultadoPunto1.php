@@ -1,25 +1,25 @@
 <?php
 require 'Punto1.php';
-
-$letras = new Letras ($_POST ['palabra'], $_POST['acronimo']);
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['frase'])) {
+    $frase = $_POST['frase'];
+    $convertidor = new convertirAcronimo();
+    $acronimo = $convertidor->convertirAcronimo($frase);
+} else {
+    die("No se ha enviado ninguna frase.");
+}
 ?>
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title> Resultado</title>
+    <title>Resultado del Acrónimo</title>
 </head>
 <body>
-    <h1>
-        El acronimo es:
-    </h1>
+    <h1>Resultado del Acrónimo</h1>
     <div>
-        <?php
-        echo $acronimo->CreacionDeAcronimos();
-        ?>
+        <p>Frase original: <strong><?php echo htmlspecialchars($frase); ?></strong></p>
+        <p>Acrónimo: <strong><?php echo htmlspecialchars($acronimo); ?></strong></p>
     </div>
+    <a href="index1.html">Volver</a>
 </body>
-
-
 </html>

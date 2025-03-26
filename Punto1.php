@@ -1,33 +1,20 @@
-<?
+<?php
 
-interface model
+class convertirAcronimo
 {
-    function get($prop);
-    function set($prop, $value);
-}
-
-abstract class letras implements model
-{
-    protected $palabra = null;
-    private $acronimo = null;
-
-    abstract function toString();
-
-    function CreacionDeAcronimos()
+    public function convertirAcronimo($frase)
     {
-        $acronimo  = '';
-        foreach ($this->palabra as $palabra) {
-            $acronimo .= strtoupper($palabra[0]);
+        
+        $fraseLimpia = preg_replace('/[^\w\s-]/', '', $frase);
+        $palabras = preg_split('/[\s-]+/', $fraseLimpia);
+        $acronimo = '';
+        foreach ($palabras as $palabra) {
+            if (!empty($palabra)) {
+                $acronimo .= strtoupper($palabra[0]);
+            }
         }
-    }
-
-    function get($prop)
-    {
-        return $this->{$prop};
-    }
-
-    function set($prop, $value)
-    {
-        $this->{$prop} = $value;
+        
+        return $acronimo;
     }
 }
+?>
