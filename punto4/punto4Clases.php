@@ -61,7 +61,8 @@ class OperacionesConjuntos extends Conjunto
     $conjuntoB = $this->get('conjuntoB');
     $interseccion = [];
 
-    foreach ($conjuntoA as $elemento) {
+    // Recoge los elementos que están presentes en ambos arrays y los almacena en el nuevo array llamado $interseccion
+    foreach ($conjuntoA as $elemento) {//as, por cada elemento del array, haz lo siguiente
         if (in_array($elemento, $conjuntoB)) {
             $interseccion[] = $elemento;
         }
@@ -76,7 +77,8 @@ class OperacionesConjuntos extends Conjunto
         $conjuntoA = $this->get('conjuntoA');
         $conjuntoB = $this->get('conjuntoB');
         $diferenciaAB = [];
-    
+
+        //Recoge los elemtos que estan en el conjunto A pero no en el B
         foreach ($conjuntoA as $elemento) {
             if (!in_array($elemento, $conjuntoB)) {
                 $diferenciaAB[] = $elemento;
@@ -92,11 +94,12 @@ class OperacionesConjuntos extends Conjunto
     $conjuntoB = $this->get('conjuntoB');
     $conjuntoA = $this->get('conjuntoA');
     $diferenciaBA = [];
-
-    foreach ($conjuntoB as $elemento) {
-        if (!in_array($elemento, $conjuntoA)) {
-            $diferenciaBA[] = $elemento;
-        }
+       
+    //Recoge los elemtos que estan en el conjunto B pero no en el A
+       foreach ($conjuntoB as $elemento) {
+           if (!in_array($elemento, $conjuntoA)) {
+               $diferenciaBA[] = $elemento;
+           }
     }
 
     return $diferenciaBA;
