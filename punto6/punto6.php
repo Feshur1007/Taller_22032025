@@ -99,4 +99,8 @@ class ArbolBinario
         return array_merge($this->recorridoPostorden($nodo->izquierda), $this->recorridoPostorden($nodo->derecha), [$nodo->valor]);
     }
 }
+
+
+
+
 ?>

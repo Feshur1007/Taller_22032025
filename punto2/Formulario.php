@@ -29,10 +29,10 @@
 <p>
     <?php 
         if (isset($_GET['resultado'])) {
-            echo $_GET['resultado'];
-        } else {
-            echo "No hay resultado disponible.";
-        }
+    echo $_GET['resultado'];
+} else {
+    echo "No hay resultado disponible.";
+}
     ?>
 </p>
 

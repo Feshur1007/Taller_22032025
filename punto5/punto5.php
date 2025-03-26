@@ -4,7 +4,7 @@ interface Conversion {
 
 }
 
-class conversor {
+class calculo {
     protected $numero;
 
     public function __construct($numero) {
@@ -16,20 +16,20 @@ class conversor {
     }
 }
 
-class ConversorBinarioDec extends Conversor  {
+class ConversorBinario extends calculo  {
     public function convertir(){
         return decbin($this->getNumero());
     }
- }
-                
+}
+              
  
- if ($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $numero = $_POST["numero"];
 
-    if ($numero == "" or !is_numeric($numero)){
+    if ($numero == " " or null){
      echo "Ingrese un número VÁLIDO";
     } else {
-     $conversion = new ConversorBinarioDec($numero);
+     $conversion = new ConversorBinario($numero);
     echo "El número en binario es: " . $conversion->convertir();
     }
 }
